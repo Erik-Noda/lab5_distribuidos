@@ -7,9 +7,11 @@
  * Referencias: 
  * https://docs.oracle.com/javase/tutorial/essential/io
  * http://fortunes.cat-v.org/
+ * 
+ * DUPLA: ERIK NODA E THIAGO BERTO MINSON
  */
 
-
+// ------------------------------------------------------------------------------------------------------------
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -20,25 +22,22 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.Set;
-
+// ------------------------------------------------------------------------------------------------------------
 public class Principal {
 
-	public final static Path path = Paths
-			.get("src\\fortune-br.txt");
+	public final static Path path = Paths.get("src\\fortune-br.txt");
 	private int NUM_FORTUNES = 0;
 
 	private FileReader fr; 
 	
 	public class FileReader {
-
+// ------------------------------------------------------------------------------------------------------------
 		public int countFortunes() throws FileNotFoundException {
 
 			int lineCount = 0;
 
-			InputStream is = new BufferedInputStream(new FileInputStream(
-					path.toString()));
-			try (BufferedReader br = new BufferedReader(new InputStreamReader(
-					is))) {
+			InputStream is = new BufferedInputStream(new FileInputStream(path.toString()));
+			try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
 
 				String line = "";
 				while (!(line == null)) {
@@ -56,14 +55,11 @@ public class Principal {
 			}
 			return lineCount;
 		}
+// ------------------------------------------------------------------------------------------------------------
+		public void parser(HashMap<Integer, String> hm)	throws FileNotFoundException {
 
-		public void parser(HashMap<Integer, String> hm)
-				throws FileNotFoundException {
-
-			InputStream is = new BufferedInputStream(new FileInputStream(
-					path.toString()));
-			try (BufferedReader br = new BufferedReader(new InputStreamReader(
-					is))) {
+			InputStream is = new BufferedInputStream(new FileInputStream(path.toString()));
+			try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
 
 				int lineCount = 0;
 
@@ -91,16 +87,13 @@ public class Principal {
 				System.out.println("SHOW: Excecao na leitura do arquivo.");
 			}
 		}
-
-		public String read(HashMap<Integer, String> hm)
-				throws FileNotFoundException {
+// ------------------------------------------------------------------------------------------------------------
+		public String read(HashMap<Integer, String> hm)	throws FileNotFoundException {
 
 			String result="-2";
 			
-			InputStream is = new BufferedInputStream(new FileInputStream(
-					path.toString()));
-			try (BufferedReader br = new BufferedReader(new InputStreamReader(
-					is))) {
+			InputStream is = new BufferedInputStream(new FileInputStream(path.toString()));
+			try (BufferedReader br = new BufferedReader(new InputStreamReader(is))) {
 
 				SecureRandom sr = new SecureRandom();
 				int lineSelected = sr.nextInt(NUM_FORTUNES);
@@ -116,7 +109,7 @@ public class Principal {
 			}
 			return result;
 		}
-
+// ------------------------------------------------------------------------------------------------------------
 		public void write(HashMap<Integer, String> hm, String fortune)
 				throws FileNotFoundException {
 
@@ -143,7 +136,7 @@ public class Principal {
 			}
 		}
 	}
-
+// ------------------------------------------------------------------------------------------------------------
 	public void write(String fortune){
 		fr = new FileReader();
 		try {
@@ -156,6 +149,7 @@ public class Principal {
 			e.printStackTrace();
 		}
 	}
+// ------------------------------------------------------------------------------------------------------------
 	public String read(){
 		String result="-1";
 		

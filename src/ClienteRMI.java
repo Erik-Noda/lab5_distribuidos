@@ -7,6 +7,8 @@
  * Referencias: 
  * https://docs.oracle.com/javase/tutorial/essential/io
  * http://fortunes.cat-v.org/
+ * 
+ * DUPLA: ERIK NODA E THIAGO BERTO MINSON
  */
 
 import java.rmi.registry.LocateRegistry;
